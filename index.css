@@ -1,0 +1,180 @@
+* {
+    display: border-box;
+    padding: 0;
+    margin: 0;
+}
+:root {
+    --pale-blue: hsl(243, 100%, 93%);
+    --grayish-blue: hsl(229, 7%, 55%);
+    --dark-blue: hsl(228, 56%, 26%);
+    --very-dark-blue: hsl(229, 57%, 11%);
+    --background: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+}
+
+body {
+    height: 100dvh;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    background-color: var(--very-dark-blue);
+    background-image: url(./images/bg-desktop.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.wrapper {
+width: 60%;
+position: absolute;
+top: 55%;
+left: 50%;
+transform: translate(-50%, -50%);
+
+display: flex;
+flex-direction: row;
+gap: 2rem;
+}
+
+.fylo, .progress {
+    display: flex;
+    flex-direction: column;
+}
+.fylo {
+    gap: 3rem;
+    flex: 1;
+}
+.logo {
+    align-self: flex-start;
+}
+
+.icons {
+    display: flex;
+    gap: 1rem;
+}
+.frame {
+    border-radius: 1rem;
+    background-color: var(--very-dark-blue);
+    min-height: 42px;
+    min-width: 42px;
+
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    align-items: center;
+    justify-items: center;
+}
+.progress {
+    justify-content: center;
+    height: fit-content;
+    align-self: flex-end;
+    gap: 1rem;
+    flex: 2;
+    position: relative;
+}
+legend {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+/* styling  */
+.wrapper > * {
+    background-color: var(--dark-blue);
+}
+.fylo {
+    border-radius: 1rem 6rem 1rem 1rem;
+    padding: 3rem;
+}
+
+.comment {
+    background-color: white;
+}
+.comment {
+    width: 175px;
+    height: 65px;
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    position: absolute;
+    top: -50px;
+    right: 3rem;
+}
+.comment > p {
+    text-align: center;
+}
+.comment ::after {
+    content: '';
+    position: absolute;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid transparent;
+    border-right: 20px solid white;
+    border-top: 20px solid white;
+    top: 60px;
+    right: 0;
+}
+
+.comment > p {
+    color: var(--very-dark-blue);
+}
+span {
+    font-weight: 700;
+    font-size: 40px;
+}
+.progress {
+    border-radius: 1rem;
+    padding: 3rem;
+}
+
+
+meter {
+    background: var(--very-dark-blue);
+    border-radius: 9px;
+    height: 21px;
+    width: auto;
+}
+meter::-webkit-meter-optimum-value {
+    background: var(--background);
+    border-radius: 9px;
+    margin: 2px; 
+    height: 17px;
+}
+meter::-moz-meter-bar { 
+    background: var(--background);
+    border-radius: 9px;
+    margin: 2px;    
+    height: 17px;
+}
+p, label {
+    color: var(--pale-blue);
+}
+
+
+
+@media screen and (width <= 900px){
+
+    .wrapper {
+        width: 90%;
+        flex-wrap: wrap;
+    }
+    .fylo, .progress {
+        flex: 0;
+        min-width: 250px;
+    } 
+    .comment ::after {
+        content: none;
+    }
+    .comment {
+        top: 90%;
+        right: 20%;
+    }
+}
+
+@media screen and (width <= 700px) {
+    body {
+        background-image: url(./images/bg-mobile.png);
+        background-size: cover;
+    }
+    .wrapper {
+        top: 45%;
+    }   
+    
+}
